@@ -161,7 +161,9 @@ function useCustomTheme(): Readonly<CustomGridTheme> {
       defaultTableHeight: Math.round(convertRemToPx("25rem")),
       minColumnWidth: Math.round(convertRemToPx("3.125rem")),
       maxColumnWidth: Math.round(convertRemToPx("62.5rem")),
-      maxColumnAutoWidth: Math.round(convertRemToPx("31.25rem")),
+      // Keep auto-sized columns eligible for the full width allowed when
+      // users resize them. Long text can need more than 500px to fit.
+      maxColumnAutoWidth: Math.round(convertRemToPx("62.5rem")),
       defaultRowHeight: Math.round(convertRemToPx("2.1875rem")),
       defaultHeaderHeight: Math.round(convertRemToPx("2.1875rem")),
       bgRowHovered: mix(theme.colors.bgColor, theme.colors.secondaryBg, 0.3),
